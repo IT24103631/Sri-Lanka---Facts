@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Facts about Sri Lanka</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            animation: backgroundAnimation 10s infinite alternate;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        main {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        #fact {
+            margin: 20px 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(45deg, #ff6b6b, #f7d94c); }
+            50% { background: linear-gradient(45deg, #6bff6b, #4cf7d9); }
+            100% { background: linear-gradient(45deg, #6b6bff, #d94cf7); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fun Facts about Sri Lanka</h1>
+    </header>
+    <main>
+        <div id="fact-container">
+            <p id="fact">Click the button to reveal a fun fact!</p>
+        </div>
+        <button id="fact-button">Show Random Fact</button>
+    </main>
+    <footer>
+        <p>&copy; 2023 Fun Facts about Sri Lanka</p>
+    </footer>
+    <script>
+        const facts = [
+            "Sri Lanka is known as the Pearl of the Indian Ocean.",
+            "The country has a rich biodiversity, with many species found nowhere else on Earth.",
+            "Sri Lanka is famous for its tea, especially Ceylon tea.",
+            "The ancient city of Sigiriya is a UNESCO World Heritage Site.",
+            "Sri Lanka has a diverse culture with influences from Buddhism, Hinduism, and colonial history.",
+            "The country is home to the world's oldest living tree, the Sri Maha Bodhi.",
+            "Sri Lanka has some of the best beaches in the world, perfect for surfing and relaxation.",
+            "The country is known for its vibrant festivals, including the Sinhala and Tamil New Year.",
+            "Sri Lanka is one of the top places for whale watching.",
+            "The island has a rich history of spice trade, particularly cinnamon."
+        ];
+
+        const factContainer = document.getElementById('fact');
+        const factButton = document.getElementById('fact-button');
+
+        factButton.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            factContainer.textContent = facts[randomIndex];
+            factContainer.style.opacity = 0; // Start with hidden
+            setTimeout(() => {
+                factContainer.style.opacity = 1; // Fade in
+            }, 100);
+        });
+    </script>
+</body>
+</html>
